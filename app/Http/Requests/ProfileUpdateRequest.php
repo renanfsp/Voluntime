@@ -25,6 +25,8 @@ class ProfileUpdateRequest extends FormRequest
                 'max:255',
                 Rule::unique(User::class)->ignore($this->user()->id),
             ],
+            'address' => ['required', 'string', 'max:511'],
+            'phone' => ['required', 'string', 'regex:/^\(\d{2}\)\s\d{4,5}-\d{4}$/', 'max:15'],
         ];
     }
 }
